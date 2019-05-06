@@ -1,0 +1,85 @@
+<div class="content__title container">
+    <h1>Задания</h1>
+</div>
+  <div>
+      <div class="content__menu container">
+        <ul >
+          <li class="content__menu__chosen"><a href="./">Новые</a><span class="content__menu__span">1</span></li>
+          <li><a href="./">В работе</a><span class="content__menu__orange">1</span></li>
+          <li><a href="./">На рассмотрении</a><span class="content__menu__span">3</span></li>
+          <li><a href="./">Выполнены</a><span class="content__menu__span">187</span></li>
+          <li><a href="./">Отменены</a><span class="content__menu__span">4</span></li>
+          <li><a href="./">Черновики</a><span class="content__menu__span">7</span></li>
+        </ul>
+      <label class="content__menu__circle">
+      <img src="./assets/ic_speeddial_white_24dp_2x.png" alt="" />
+      </label>
+      </div><div class="content__menu__background__line"></div>
+    </div>
+    <div class="container">
+    <div class="content__filter">
+        <input type="text" 
+        placeholder="Поиск по слову"
+        ng-model="search.text"/>
+      </div>
+    <div class="content__filter">
+        <li>
+          <input type="checkbox" 
+                  id="person" 
+                  name="person" ng-model="search.personal"/>
+          <label for="person" 
+                  class="content__filter__checkmark">
+                  Персональное</label>
+        </li>
+        <li>
+          <input type="checkbox" 
+                  id="night" 
+                  name="night"
+                  ng-model="search.night"
+                  />
+          <label for="night" 
+                  class="content__filter__checkmark">
+                  Ночное</label>
+        </li>
+        <li>
+          <input type="checkbox" 
+                  id="quick" 
+                  name="quick"
+                  ng-model="search.quick"
+                   />
+          <label for="quick" 
+                  class="content__filter__checkmark">
+                  Срочное</label>
+        </li>
+        <div class="content__select">
+          <select>
+            <option>Никита Ласточкин</option>
+            <option>Геннадий Орлов</option>
+            <option>Валерий Чайкин</option>
+          </select>
+        </div>
+      </div>
+    </div>
+      <div class="container content__table">
+          <table>
+            <tbody>
+            <tr>
+              <th>ID</th>
+              <th>Город</th>
+              <th>Название</th>
+              <th>Выполнить до</th>
+              <th>Сумма</th>
+            </tr>
+              <tr ng-repeat="task in tasks  | filter:search.text | filter: { personal: get_val(search.personal), night: get_val(search.night), quick: get_val(search.quick) }">
+                <td>{{task.id}}</td>
+                <td>{{task.city}}</td>
+                <td>{{task.text}}</td>
+                <td>{{task.date}}</td>
+                <td>{{task.cash}}</td>
+              </tr>
+              <tr ng-if="tasks.length === 0">
+                  <td colspan="5"><center>Задания отсутствуют</center></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>

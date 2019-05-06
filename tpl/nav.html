@@ -1,0 +1,16 @@
+<div class="header__section">
+    <label for="toggle" class="burger">&#9776;</label>
+    <input type="checkbox" id="toggle"></input>
+
+    <div class="header__item headerlogo headerButton">taskon</div>
+    <div class="header__item"><a ng-class="{'header__item__color':isActive('/')}"   href="/">Задания</a> </div>
+    <div class="header__item"><a ng-class="{'header__item__color':isActive('/finance')}" href="/finance">Финансы</a></div>
+    <div class="header__item"><a ng-class="{'header__item__color':isActive('/company')}" href="/company">Компания</a></div>
+    <div class="header__item"><a ng-class="{'header__item__color':isActive('/stats')}" href="/stats">Статистика</a></div>
+  </div>
+<div class="header__section">
+    <div class="header__item headerButton"><span class="header__item__balance ">Баланс</span><span class="header__item__bold">218 982,90 ₽</span></div>
+    <button class="header__item headerButton header__item__notifications header__notification__badge" data-badge=""></button>
+    <div class="header__item headerButton header__select"><select><option>Никита Ласточкин</option><option>Геннадий Орлов</option><option>Валерий Чайкин</option></select></div>
+    <div class="header__item headerButton header__item__help"></div>
+  </div>
